@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Swetha | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      color: #f5f5f5;
+      overflow-x: hidden;
+    }
+    header {
+      padding: 3rem 2rem;
+      text-align: center;
+      background: #111;
+      box-shadow: 0 4px 10px rgba(255,255,255,0.05);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    header h1 {
+      font-size: 3.5rem;
+      color: #00adb5;
+      font-family: 'Great Vibes', cursive;
+    }
+    header h1:hover {
+      color: #00ffc3;
+    }
+    header p {
+      font-size: 1.3rem;
+      color: #eeeeee;
+      font-style: italic;
+    }
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      margin: 1.5rem auto;
+      display: block;
+      object-fit: cover;
+      border: 3px solid #00adb5;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+    .profile-img:hover {
+      transform: scale(1.1);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00adb5;
+    }
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+    section {
+      padding: 3rem;
+      margin: 2rem auto;
+      max-width: 900px;
+      border-radius: 20px;
+      background: #222;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      animation: slideUp 1s ease;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #00adb5;
+      margin-bottom: 2rem;
+      font-family: 'Great Vibes', cursive;
+    }
+    .project {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      border-radius: 10px;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+      background: #2a2a2a;
+    }
+    .project h3 {
+      color: #00ffc3;
+    }
+    .project h3:hover {
+      color: #00adb5;
+    }
+    
+      footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #111;
+      color: #999;
+    
+    }
+    .contact a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #00adb5;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .contact a:hover {
+      color: #00ffc3;
+    }
+    .resume-btn {
+      background-color: #00adb5;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 1rem;
+      display: inline-block;
+      transition: background 0.3s, transform 0.3s;
+      text-decoration: none;
+    }
+    .resume-btn:hover {
+      background-color: #00ffc3;
+      color: #000;
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .entry-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100vh;
+      background: black;
+      color: #00adb5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      transition: opacity 1s ease;
+      animation: fadeIn 2s ease;
+    }
+    .entry-screen h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: slideUp 1.5s ease;
+    }
+    .enter-btn {
+      padding: 1rem 2rem;
+      border: 2px solid #00adb5;
+      background: transparent;
+      color: #00adb5;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, transform 0.3s;
+    }
+    .enter-btn:hover {
+      background: #00adb5;
+      color: black;
+      transform: scale(1.05);
+    }  
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Entry Screen -->
+<div class="entry-screen" id="entryScreen">
+  <h1>Wanna know about me? 👀</h1>
+  <p style="font-size: 1.1rem; color: #ccc; font-style: italic; margin-bottom: 1.5rem;">Let’s take a quick dive into my world of code and creativity ✨</p>
+  <button class="enter-btn" onclick="document.getElementById('entryScreen').style.display='none';">Let's Explore 🚀</button>
+</div>
+
+
+  <!-- Modal for Image Preview -->
+  <div class="modal" id="imgModal" onclick="this.style.display='none'">
+    <span class="close-modal" onclick="document.getElementById('imgModal').style.display='none'">&times;</span>
+    <div class="modal-content">
+      <img src="image.jpg" alt="Swetha's Enlarged Photo">
+    </div>
+  </div>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Swetha</h1>
+    <p>Full Stack Developer | Web Enthusiast</p>
+    <img src="image.jpg" alt="Swetha's Photo" class="profile-img" onclick="document.getElementById('imgModal').style.display='flex'">
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p>I’m a Full Stack Developer skilled in HTML, CSS, JavaScript, PHP, MySQL, and Bootstrap. I have a passion for building beautiful, responsive web applications and a deep interest in UI/UX design. When I’m not coding, you’ll find me dancing — my happy place for creativity and joy!</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="project">
+      <h3>Student Well-being System</h3>
+      <p>A real-time web application to monitor, assess, and improve students' mental well-being with dynamic assessments, academic tracking, and personalized counselor support.</p>
+    </div>
+    <div class="project">
+      <h3>Automatic Email Pushing System</h3>
+      <p>A real-world automation tool designed to send scheduled emails and alerts to users based on system events or time triggers. This project enhances communication efficiency and is widely applicable in real-time scenarios like notifications, reminders, and workflow automation.</p>
+    </div>
+    
+    <div class="project">
+      <h3>Casting Hub</h3>
+      <p>A platform to connect aspiring artists with casting calls and auditions in the entertainment industry, featuring portfolios, application tracking, and talent search tools.</p>
+    </div>
+    <div class="project">
+      <h3>Student Management System</h3>
+      <p>A complete student information system to manage profiles, academic performance, and counseling data securely and efficiently.</p>
+    </div>
+
+    <div class="project">
+      <h3>My Portfolio</h3>
+      <p>This portfolio site you're viewing right now — designed and developed with custom HTML, CSS, and JavaScript. Responsive, stylish, and personal!</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact">
+      <p>Email: swethathina061@gmail.com | swethathina062@gmail.com</p>
+      <a href="https://www.linkedin.com/in/swethathinakaran/" target="_blank">LinkedIn</a>
+      <br><br>
+      <a href="resume.pdf" class="resume-btn" download>Download Resume</a>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer>
+    <p>Made with ❤️ by Swetha</p>
+  </footer>
+
+</body>
+</html>
